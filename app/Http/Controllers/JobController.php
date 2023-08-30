@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Job;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
@@ -13,7 +14,7 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     use WithPagination;
-   
+
     public function index()
     {
         $jobs = Job::paginate(10);
@@ -29,8 +30,21 @@ class JobController extends Controller
     public function getSingleJob($id)
     {
         $job = Job::find($id);
-        // dd($job);
-        return view('singleJob')->with('job', $job);
+        // // dd($job);
+
+        $relatedJobs = Job::where('id', '!=', $id)
+            ->where(function ($query) use ($job) {
+                $query->where('job_title', $job->job_title)
+                    ->orWhere('job_type', $job->job_type)
+                    ->orWhere('location_full', $job->location_full)
+                    ->orWhere('seniority', $job->seniority);
+            })
+            ->paginate(10);
+
+        return view('singleJob')->with([
+            'job' => $job,
+            'relatedJobs' => $relatedJobs,
+        ]);
     }
 
     /**
