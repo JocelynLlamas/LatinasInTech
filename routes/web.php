@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 
 // Auth::routes();
 
-Route::get('/', function () {
-    return view('components.layout');
-});
+// Route::get('/', function () {
+//     return view('components.layout');
+// });
 
-Route::get('/jobs', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\JobController::class, 'index'])->name('home');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/singleJob', [App\Http\Controllers\JobController::class, 'create'])->name('singleJob');

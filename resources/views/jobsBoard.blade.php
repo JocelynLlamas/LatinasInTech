@@ -1,6 +1,6 @@
 @extends('components.layout')
 
-@section('title', 'Página de Inicio')
+@section('title', 'Jobs board')
 
 @section('content')
 <div class="container d-flex flex-column">
@@ -65,8 +65,7 @@
                     </div>
                     <!-- PONER UN TERNARIO Y UN METODO ON CLICK -->
                     <div class="col-auto d-flex align-items-center">
-                        <button type="button" class="btn btn-primary" 
-                        style="
+                        <button type="button" class="btn btn-primary" style="
                         color: #EA99A3; 
                         font-weight: bold; 
                         border-radius: 0px;
@@ -77,8 +76,7 @@
                         </button>
                     </div>
                     <div class="col-auto d-flex align-items-center">
-                        <button type="button" class="btn btn-primary"
-                        style="
+                        <button type="button" class="btn btn-primary" style="
                         color: #A3A3A3; 
                         border-radius: 0px;
                         border: 1px solid #A3A3A3;
@@ -95,7 +93,11 @@
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
+                    <td>
+                        <a href="{{ route('singleJob') }}">
+                            <p>link</p>
+                        </a>
+                    </td>
                     <td>Otto</td>
                     <td>@mdo</td>
                 </tr>
