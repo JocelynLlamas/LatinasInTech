@@ -28,11 +28,18 @@
                     <div style="color: #EA99A3;">2023 LiT Summit</div>
                     <div style="color: #EA99A3;">2022 LiT Summit Recap</div>
                 </div>
-                <div class="col">
-                    <button type="button" class="btn" style="font-weight: bold; color: white;background-color: #EA99A3">Donate</button>
+                <div class="col d-flex flex-row-reverse">
+                    <button type="button" class="btn" style="
+                            font-weight: bold; 
+                            color: white;
+                            background-color: #EA99A3; 
+                            height: 25%;
+                            width: 60%">
+                        Donate
+                    </button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col">
                     <div style="font-weight: bold; color: white">Latinas in Tech is a 501(c)(3) non-profit organization</div>
                 </div>
@@ -45,23 +52,43 @@
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <!-- PONER BORDE DERECHO -->
                     <div class="col-auto" style="font-weight: bold; color: white">
                         © Latinas in Tech
                     </div>
-                    <div class="col-auto" style="font-weight: bold; color: #EA99A3">
+                    <div class="col-auto border-end border-white border-2" style="font-weight: bold; color: #EA99A3; padding-right: 1%">
                         Cookie Policy
                     </div>
-                    <div class="col-auto" style="font-weight: bold; color: #EA99A3">
+                    <div class="col-auto border-end border-white border-2" style="font-weight: bold; color: #EA99A3; padding-right: 1%">
                         Terms of use
                     </div>
-                    <div class="col-auto" style="font-weight: bold; color: #EA99A3">
+                    <div class="col-auto border-end border-white border-2" style="font-weight: bold; color: #EA99A3; padding-right: 1%">
                         Privacy Policy
                     </div>
                 </div>
             </div>
-            <div class="col">
-                Column
+            <div class="col d-flex flex-row-reverse">
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="https://twitter.com/latinas_tech">
+                            <img src="/assets/Twitter.png" alt="X">
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://www.linkedin.com/company/latinas-in-tech/">
+                            <img src="/assets/LinkedIn.png" alt="X">
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://www.instagram.com/latinasintechorg/">
+                            <img src="/assets/Instagram.png" alt="X">
+                        </a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="https://www.youtube.com/@latinasintech">
+                            <img src="/assets/Youtube.png" alt="X">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
