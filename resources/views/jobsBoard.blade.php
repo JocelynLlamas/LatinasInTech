@@ -120,7 +120,7 @@
                         $altText = '';
                         @endphp
 
-                        @foreach ($values as $key => $value)
+                        @foreach ($values as $value)
                         @php
                         if (trim($value) == "remotefriendly") {
                         $imgSrc = "/assets/perks/Perk Remote Friendly.png";

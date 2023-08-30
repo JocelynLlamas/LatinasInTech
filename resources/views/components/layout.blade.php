@@ -24,9 +24,9 @@
 
 <body>
     <x-navbar />
-    <div class="container">
+    <!-- <div class="container"> -->
         @yield('content')
-    </div>
+    <!-- </div> -->
     <x-footer />
 </body>
 

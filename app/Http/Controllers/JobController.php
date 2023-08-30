@@ -29,8 +29,8 @@ class JobController extends Controller
     public function getSingleJob($id)
     {
         $job = Job::find($id);
-        dd($job);
-        // return view('singleJob')->with('job', $job);
+        // dd($job);
+        return view('singleJob')->with('job', $job);
     }
 
     /**
