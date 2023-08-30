@@ -12,4 +12,4 @@ use App\Http\Controllers\JobController;
 
 Route::get('/', [App\Http\Controllers\JobController::class, 'index'])->name('home');
 
-Route::get('/singleJob', [App\Http\Controllers\JobController::class, 'create'])->name('singleJob');
+Route::get('/singleJob/{id}', [App\Http\Controllers\JobController::class, 'getSingleJob'])->name('singleJob');

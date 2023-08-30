@@ -91,29 +91,71 @@
         <!-- TABLE -->
         <table class="table bg-white">
             <tbody>
+                @foreach($jobs as $job)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>
-                        <a href="{{ route('singleJob') }}">
-                            <p>link</p>
-                        </a>
+                    <th scope="row" style="width: 1%;" class="p-4"><img src="/assets/shapes/Rectangle.png" alt="profile"></th>
+                    <td scope="row" class="p-4" style="width: 35%;">
+                        <div class="col fw-bold">
+                            <a href="/singleJob/{{$job->id}}" style="color: #E998A2; text-decoration:none">
+                                {{$job->job_title}}
+                            </a>
+                        </div>
+                        <div class="col">
+                            {{$job->company_name}}
+                        </div>
+                        <div class="col" style="font-size: 80%;">
+                            {{$job->fecha}}
+                        </div>
                     </td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td scope="row" class="p-4" style="width: 20%;">
+                        <div class="d-flex align-items-center">
+                            <img src="/assets/shapes/profilePhoto.png" alt="profile" style="width: 8%; margin-right:2%">
+                            {{$job->job_type}}
+                        </div>
+                    </td>
+                    <td scope="row" class="p-4">
+                        @php
+                        $values = explode(';', $job->perks);
+                        $imgSrc = '';
+                        $altText = '';
+                        @endphp
+
+                        @foreach ($values as $key => $value)
+                        @php
+                        if (trim($value) == "remotefriendly") {
+                        $imgSrc = "/assets/perks/Perk Remote Friendly.png";
+                        $altText = "Remote Friendly";
+                        } elseif (trim($value) == "paidparentalleave") {
+                        $imgSrc = "/assets/perks/Perk Parental Leave.png";
+                        $altText = "Paid Parental Leave";
+                        } elseif (trim($value) == "unlimitedvacation") {
+                        $imgSrc = "/assets/perks/Perk Unlimited Vacation.png";
+                        $altText = "Unlimited Vacation";
+                        }elseif (trim($value) == "latinxintech") {
+                        $imgSrc = "/assets/perks/Perk Latinx in Tech.png";
+                        $altText = "latinxintech";
+                        }elseif (trim($value) == "womenintecherg") {
+                        $imgSrc = "/assets/perks/Perk Women in Tech.png";
+                        $altText = "womenintecherg";
+                        }elseif (trim($value) == "lgbtqierg-2") {
+                        $imgSrc = "/assets/perks/Perk LGTBIQ.png";
+                        $altText = "lgbtqierg-2";
+                        }
+                        @endphp
+                        @if (!empty($imgSrc))
+                        <img src="{{ $imgSrc }}" alt="{{ $altText }}" style="width: 15%; margin-right:2%">
+                        @endif
+
+                        @endforeach
+
+                    </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-end mb-4">
+            {{ $jobs->links() }}
+        </div>
     </div>
 </div>
 @endsection

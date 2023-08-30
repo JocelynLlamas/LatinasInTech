@@ -75,11 +75,11 @@
                                         <a class="nav-link" href="#" style="color:black; font-weight: bold">LiT Community</a>
                                     </li>
                                     <li class="nav-item d-flex justify-content-center align-items-center p-1">
-                                        <img src="/assets/mail.png" alt="mail">
+                                        <img src="/assets/icons/mail.png" alt="mail">
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black; font-weight: bold">
-                                            <img src="/assets/profilePhoto.png" alt="profile" style="width: 50%;">
+                                            <img src="/assets/shapes/profilePhoto.png" alt="profile" style="width: 50%;">
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="#">Profile</a></li>

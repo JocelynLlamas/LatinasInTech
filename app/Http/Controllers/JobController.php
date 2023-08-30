@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Job;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 
 class JobController extends Controller
 {
@@ -11,9 +12,13 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    use WithPagination;
+   
     public function index()
     {
-        return view('jobsBoard');
+        $jobs = Job::paginate(10);
+        // dd($jobs);
+        return view('jobsBoard')->with('jobs', $jobs);
     }
 
     /**
@@ -21,9 +26,11 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getSingleJob($id)
     {
-        return view('singleJob');
+        $job = Job::find($id);
+        dd($job);
+        // return view('singleJob')->with('job', $job);
     }
 
     /**

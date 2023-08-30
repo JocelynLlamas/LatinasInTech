@@ -70,22 +70,22 @@
                 <div class="row">
                     <div class="col-auto">
                         <a href="https://twitter.com/latinas_tech">
-                            <img src="/assets/Twitter.png" alt="X">
+                            <img src="/assets/icons/Twitter.png" alt="X">
                         </a>
                     </div>
                     <div class="col-auto">
                         <a href="https://www.linkedin.com/company/latinas-in-tech/">
-                            <img src="/assets/LinkedIn.png" alt="X">
+                            <img src="/assets/icons/LinkedIn.png" alt="X">
                         </a>
                     </div>
                     <div class="col-auto">
                         <a href="https://www.instagram.com/latinasintechorg/">
-                            <img src="/assets/Instagram.png" alt="X">
+                            <img src="/assets/icons/Instagram.png" alt="X">
                         </a>
                     </div>
                     <div class="col-auto">
                         <a href="https://www.youtube.com/@latinasintech">
-                            <img src="/assets/Youtube.png" alt="X">
+                            <img src="/assets/icons/Youtube.png" alt="X">
                         </a>
                     </div>
                 </div>
