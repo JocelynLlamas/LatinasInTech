@@ -21,4 +21,5 @@ Route::get('/filterBySeniority', [App\Http\Controllers\JobController::class, 'fi
 Route::get('/filterByPerks', [App\Http\Controllers\JobController::class, 'filterByPerks'])->name('filter.perks');
 Route::get('/filterByLocation', [App\Http\Controllers\JobController::class, 'filterByLocation'])->name('filter.location');
 
-
+//Order By
+Route::get('/jobs', [App\Http\Controllers\JobController::class, 'orderBy'])->name('jobs.orderBy');

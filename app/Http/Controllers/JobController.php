@@ -131,6 +131,24 @@ class JobController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function orderBy(Request $request)
+    {
+        $order = $request->input('order', 'recent');
+
+        if ($order === 'recent') {
+            $jobs = Job::orderBy('fecha', 'desc')->paginate(10);
+        } elseif ($order === 'az') {
+            $jobs = Job::orderBy('company_name')->paginate(10);
+        }
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

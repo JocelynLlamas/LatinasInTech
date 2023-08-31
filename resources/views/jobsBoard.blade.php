@@ -64,7 +64,7 @@
                         order by:
                     </div>
                     <!-- PONER UN TERNARIO Y UN METODO ON CLICK -->
-                    <div class="col-auto d-flex align-items-center">
+                    <!-- <div class="col-auto d-flex align-items-center">
                         <button type="button" class="btn btn-primary" style="
                         color: #EA99A3; 
                         font-weight: bold; 
@@ -74,8 +74,8 @@
                         ">
                             Recent
                         </button>
-                    </div>
-                    <div class="col-auto d-flex align-items-center">
+                    </div> -->
+                    <!-- <div class="col-auto d-flex align-items-center">
                         <button type="button" class="btn btn-primary" style="
                         color: #A3A3A3; 
                         border-radius: 0px;
@@ -84,6 +84,24 @@
                         ">
                             Companies A-Z
                         </button>
+                    </div> -->
+
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="{{ route('jobs.orderBy', ['order' => 'recent']) }}" class="btn btn-primary" style="
+                        color: #EA99A3; 
+                        font-weight: bold; 
+                        border-radius: 0px;
+                        border: 1px solid #EA99A3;
+                        background-color: rgba(234, 153, 163, 0.3)
+                        ">Recent</a>
+                    </div>
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="{{ route('jobs.orderBy', ['order' => 'az']) }}" class="btn btn-primary" style="
+                        color: #A3A3A3; 
+                        border-radius: 0px;
+                        border: 1px solid #A3A3A3;
+                        background-color: white
+                        ">Companies A-Z</a>
                     </div>
                 </div>
             </div>
