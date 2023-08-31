@@ -15,30 +15,30 @@
                 </div>
                 <div class="row">
                     <div class="col-auto">
-                        <form>
+                        <div class="mb-3">
+                            <form action="{{ route('filter.area') }}" method="get">
+                                <input type="search" name="functional_area" class="form-control" id="functional_area" aria-describedby="functional_area" placeholder="{{ request('functional_area') ? request('functional_area') : 'Functional Area' }}">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <form action="{{ route('filter.seniority') }}" method="get">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="exampleInputArea" aria-describedby="areaHelp" placeholder="Functional Area">
+                                <input type="search" name="seniority" class="form-control" id="seniority" aria-describedby="seniority" placeholder="{{ request('seniority') ? request('seniority') : 'Seniority' }}">
                             </div>
                         </form>
                     </div>
                     <div class="col-auto">
-                        <form>
+                        <form action="{{ route('filter.perks') }}" method="get">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="exampleInputSeniority" aria-describedby="seniorityHelp" placeholder="Seniority">
+                                <input type="search" name="perks" class="form-control" id="perks" aria-describedby="perks" placeholder="{{ request('perks') ? request('perks') : 'Perks' }}">
                             </div>
                         </form>
                     </div>
                     <div class="col-auto">
-                        <form>
+                        <form action="{{ route('filter.location') }}" method="get">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="exampleInputPerks" aria-describedby="perksHelp" placeholder="Perks">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-auto">
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="exampleInputLocation" aria-describedby="locationHelp" placeholder="Location">
+                                <input type="search" name="location_full" class="form-control" id="location_full" aria-describedby="location_full" placeholder="{{ request('location_full') ? request('location_full') : 'Location' }}">
                             </div>
                         </form>
                     </div>
@@ -56,8 +56,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <form class="" style="width: 90%;">
-                            <input type="text" class="form-control" id="exampleInputKeywords" aria-describedby="KeywordsHelp" placeholder="Functional Keywords">
+                        <form action="{{ route('filter.keyword') }}" method="get" style="width: 90%;">
+                            <input type="search" name="keyword" class="form-control" id="keyword" aria-describedby="keyword" placeholder="{{ request('keyword') ? request('keyword') : 'Functional Keywords' }}">
                         </form>
                     </div>
                     <div class="col-auto d-flex align-items-center">
@@ -118,10 +118,12 @@
                         $values = explode(';', $job->perks);
                         $imgSrc = '';
                         $altText = '';
+                        $registrosMostrados = 0;
                         @endphp
 
                         @foreach ($values as $value)
                         @php
+                        $registrosMostrados++;
                         if (trim($value) == "remotefriendly") {
                         $imgSrc = "/assets/perks/Perk Remote Friendly.png";
                         $altText = "Remote Friendly";
@@ -153,8 +155,9 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="d-flex justify-content-end mb-4">
-            {{ $jobs->links() }}
+        <div class="d-flex justify-content-end flex-column mb-4">
+            <div>{{ $jobs->links() }}</div>
+            <p>Mostrando {{ $registrosMostrados }} de {{ $jobs->total() }} registros</p>
         </div>
     </div>
 </div>

@@ -15,9 +15,12 @@ class JobController extends Controller
      */
     use WithPagination;
 
-    public function index()
+    public function index(Request $request)
     {
+        $filter = $request->filter;
+
         $jobs = Job::paginate(10);
+
         // dd($jobs);
         return view('jobsBoard')->with('jobs', $jobs);
     }
@@ -45,6 +48,86 @@ class JobController extends Controller
             'job' => $job,
             'relatedJobs' => $relatedJobs,
         ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *@param  \Illuminate\Http\Request 
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByArea(Request $request)
+    {
+        $functional_area = $request->input('functional_area');
+        $jobs = Job::where('functional_area', 'LIKE', '%' . $functional_area . '%')
+            ->paginate(10);
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *@param  \Illuminate\Http\Request 
+     * @return \Illuminate\Http\Response
+     */
+    public function filterBySeniority(Request $request)
+    {
+        $seniority = $request->input('seniority');
+        $jobs = Job::where('seniority', 'LIKE', '%' . $seniority . '%')
+            ->paginate(10);
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *@param  \Illuminate\Http\Request 
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByPerks(Request $request)
+    {
+        $perks = $request->input('perks');
+        $jobs = Job::where('perks', 'LIKE', '%' . $perks . '%')
+            ->paginate(10);
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *@param  \Illuminate\Http\Request 
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByLocation(Request $request)
+    {
+        $location_full = $request->input('location_full');
+        $jobs = Job::where('location_full', 'LIKE', '%' . $location_full . '%')
+            ->paginate(10);
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *@param  \Illuminate\Http\Request 
+     * @return \Illuminate\Http\Response
+     */
+    public function filterByKeyword(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        $jobs = Job::whereRaw("MATCH(
+            job_title,
+            fecha, 
+            job_type,
+            company_name,
+            location_full,
+            url,
+            perks,
+            seniority,
+            functional_area
+            ) AGAINST(? IN BOOLEAN MODE)", [$keyword])
+            ->paginate(10);
+        // dd($jobs);
+        return view('jobsBoard', compact('jobs'));
     }
 
     /**
