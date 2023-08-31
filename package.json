@@ -1,12 +1,13 @@
 {
     "private": true,
-    "homepage": "https://JocelynLlamas.github.io/LatinasInTech/build",
+    "homepage": "https://JocelynLlamas.github.io/LatinasInTech/public",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
+        "build":"npm run build",
         "prod": "npm run production",
         "production": "mix --production"
     },
