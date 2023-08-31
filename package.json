@@ -1,5 +1,6 @@
 {
     "private": true,
+    "homepage": "https://JocelynLlamas.github.io/LatinasInTech/build",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
